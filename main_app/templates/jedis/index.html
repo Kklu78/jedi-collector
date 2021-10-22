@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Jedi List</h1>
+
+{% for jedi in jedis %}
+  <div class="card">
+    <a href="{% url 'detail' jedi.id %}">
+
+    <div class="card-content">
+      <span class="card-title">{{ jedi.name }}</span>
+      <p>Rank: {{ jedi.rank }}</p>
+      {% if jedi.age > 0 %}
+        <p>Age: {{ jedi.age }}</p>
+      {% else %}
+        <p>Age: Youngling</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
